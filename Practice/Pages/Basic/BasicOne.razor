@@ -1,0 +1,19 @@
+﻿@page "/BasicOne"
+
+<h3>BasicOne</h3>
+
+<p>Write a C# Sharp program to print Hello and your name in a separate line.</p>
+<button class="btn btn-primary" @onclick="GreetMe">Show</button> <br /><br />
+<span>@Greeting</span> <br />
+<span>@Name</span>
+
+@code {
+    public string? Greeting { get; set; }
+    public string? Name { get; set; }
+
+    private void GreetMe() 
+    {
+        Greeting = "Hello,";
+        Name = "Marcell";
+    }
+}
