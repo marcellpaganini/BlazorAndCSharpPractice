@@ -1,0 +1,34 @@
+﻿@page "/BasicAlgorithmOne"
+
+<h3>BasicAlgorithmOne</h3>
+
+<p>1. Write a C# Sharp program to compute the sum of the two given integer values. If the two values are the same, then return triple their sum. Go to the editor</p>
+<p>
+Sample Input: <br />
+1, 2 <br />
+3, 2 <br />
+2, 2 <br />
+Expected Output: <br />
+3 <br />
+5 <br />
+12</p> <br />
+
+<input type="number" placeholder="Augend" @bind="Augend" />
+<input type="number" placeholder="Addend" @bind="Addend" />
+
+<button class="btn btn-primary" @onclick="() => Sum()">Sum</button> <br />
+
+<span>@Result</span>
+
+@code {
+    public int Augend { get; set; }
+
+    public int Addend { get; set; }
+
+    public int Result { get; set; }
+
+    protected internal void Sum() 
+    {
+        Result = Augend == Addend ? (Augend + Addend) * 3 : Augend + Addend; 
+    }
+}
