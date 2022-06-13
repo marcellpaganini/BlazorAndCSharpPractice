@@ -1,0 +1,35 @@
+﻿@page "/ConditionalStatementsOne"
+
+<div class="container">
+  <div class="row align-items-start">
+    <div class="col-4">
+        <h3>ConditionalStatementsOne</h3> <br />
+
+        <p>Write a C# Sharp program to accept two integers and check whether they are equal or not.</p> <br />
+        <strong>Test Data:</strong><br />
+        Input first number:<br />
+        Input second number:<br /><br />
+        
+        <strong>Expected output:</strong><br />
+        5 and 5 are equal <br /><br />
+
+        <input class="form-control" type="text" placeholder="Input first number:" @bind="FirstInput" /> <br />
+        <input class="form-control" type="text" placeholder="Input second number:" @bind="SecondInput" /> <br />
+        <span>@Result</span> <br /> <br />
+        <button class="btn btn-primary" @onclick="CheckEquality">Check</button> <br />
+    </div>
+  </div>
+</div>
+
+
+@code {
+    public int FirstInput { get; set; }
+
+    public int SecondInput { get; set; }
+    
+    public string Result { get; set; } = "";
+    private void CheckEquality() 
+    {
+        Result = FirstInput == SecondInput ? $"First input and second input are equal" : $"First input and second input are different";
+    }
+}

@@ -1,5 +1,5 @@
 using Xunit;
-using Practice.Pages;
+using Practice.Pages.BasicAlgorithm;
 
 namespace TDD;
 
