@@ -1,0 +1,26 @@
+﻿@page "/ArrayOne"
+
+<h3>ArrayOne</h3>
+
+<p>Write a program in C# Sharp to store elements in an array and print it.</p>
+
+<input type="text" placeholder="Add Item" @bind="Item" />
+<button type="button" @onclick="AddItem">➕</button>
+
+<ul>
+    @foreach (var item in Items) 
+    {
+        <li>@item</li>
+    }
+</ul>
+
+@code {
+    public string Item { get; set; } = "";
+
+    public List<String> Items { get; set; } = new List<String>();
+
+    public void AddItem() 
+    {
+        Items.Add(Item);
+    }
+}
