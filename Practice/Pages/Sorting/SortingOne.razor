@@ -29,24 +29,44 @@ According to Wikipedia "Shell sort or Shell's method, is an in-place comparison 
         //Get the initial gap value (list length / 2)
         int gap = Input.Count / 2;
 
-        //Get index[0] => first gap element and last gap element => gap
-        int firstGapElement = Input[0];
-        int lastGapElement = Input[gap];
+        //Get index[0] => first gap element index and last gap element index => gap
+        int firstGapIndex = Input.IndexOf(Input[0]);
+        int lastGapIndex = Input.IndexOf(Input[gap]);
         
-        //Check and swap
-        if (firstGapElement > lastGapElement) 
+        while (gap > 1) 
         {
-            int temp = firstGapElement;
-            Input[0] = lastGapElement;
-            Input[gap] = temp;
+            while (lastGapIndex <= Input.Count) 
+            {
+                //Check and swap
+                if (Input[firstGapIndex] > Input[lastGapIndex]) 
+                {
+                    int temp = Input[firstGapIndex];
+                    Input[firstGapIndex] = Input[lastGapIndex];
+                    Input[gap] = temp;
 
-            //If swapped, get the first gap element and check if there's a gap in the reverse direction. If so, check and swap again working to the left until reverse gap surpasses index[0]
-            
+                    //If swapped, get the first gap element and check if there's a gap in the reverse direction. If so, check and swap again working to the left until reverse gap surpasses index[0]
+                    int firstReverseGapIndex = Input[firstGapIndex - gap]; 
+                    
+                    while (firstReverseGapIndex != -1) 
+                    {
+                        /*
+                        TODO
+                        int temp = Input[firstGapIndex];
+                        Input[firstGapIndex] = Input[lastGapIndex];
+                        Input[gap] = temp;
+                        */
+                    }
+                }
+
+                //Increase first gap element and last by 1 and repeat the process until you hit list length
+                firstGapIndex++;
+                lastGapIndex++;
+            }
+
+            //Decrease gap by 1 and repeat the whole process.
+            gap--;
         }
-
-        
-        //Increase first gap element and last by 1 and repeat the process until you hit list length
-        //Divide gap by 2 and repeat the whole process. 
+         
         Result = 0;
     }
 }
