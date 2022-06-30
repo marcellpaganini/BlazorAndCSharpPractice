@@ -4,7 +4,25 @@
 <br />
 <p>Write a C# Sharp program to sort a list of elements using Shell sort. Go to the editor
 According to Wikipedia "Shell sort or Shell's method, is an in-place comparison sort. It can be seen as either a generalization of sorting by exchange (bubble sort) or sorting by insertion (insertion sort). The method starts by sorting pairs of elements far apart from each other, then progressively reducing the gap between elements to be compared. Starting with far apart elements can move some out-of-place elements into position faster than a simple nearest neighbour exchange."</p>
-<p><strong>Step by step:</strong> https://www.tutorialspoint.com/data_structures_algorithms/shell_sort_algorithm.htm</p>
-@code {
+<p><strong>Step by step:</strong> https://www.tutorialspoint.com/data_structures_algorithms/shell_sort_algorithm.htm</p> <br />
 
+<strong>Add any sequence of numbers:</strong> <br />
+<input type="number" @bind="Result"/> <button @onclick="ShellSort">Shell Sort</button> <br /><br />
+@Result
+
+@code {
+    public int Result { get; set; }
+
+    public void ShellSort() 
+    {
+        List<int> input = new List<int>();
+        Result = 0;
+        //Transform input into list
+        //Get the initial gap value (list length / 2)
+        //Get index[0] => first gap element and last gap element => gap
+        //Check and swap
+        //If swapped, get the first gap element and check if there's a gap in the reverse direction. If so, check and swap again working to the left until reverse gap surpasses index[0]
+        //Increase first gap element and last by 1 and repeat the process until you hit list length
+        //Divide gap by 2 and repeat the whole process. 
+    }
 }
