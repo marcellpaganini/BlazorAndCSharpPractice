@@ -10,19 +10,43 @@ According to Wikipedia "Shell sort or Shell's method, is an in-place comparison 
 <input type="number" @bind="Result"/> <button @onclick="ShellSort">Shell Sort</button> <br /><br />
 @Result
 
+
+@foreach (var number in Input)
+{
+    <li>@number</li>
+}
+
 @code {
     public int Result { get; set; }
 
+    public List<int> Input { get; set; } = new List<int>();
+
     public void ShellSort() 
     {
-        List<int> input = new List<int>();
-        Result = 0;
         //Transform input into list
+        Input = Result.ToString().Select(x => Convert.ToInt32(x.ToString())).ToList();
+
         //Get the initial gap value (list length / 2)
+        int gap = Input.Count / 2;
+
         //Get index[0] => first gap element and last gap element => gap
+        int firstGapElement = Input[0];
+        int lastGapElement = Input[gap];
+        
         //Check and swap
-        //If swapped, get the first gap element and check if there's a gap in the reverse direction. If so, check and swap again working to the left until reverse gap surpasses index[0]
+        if (firstGapElement > lastGapElement) 
+        {
+            int temp = firstGapElement;
+            Input[0] = lastGapElement;
+            Input[gap] = temp;
+
+            //If swapped, get the first gap element and check if there's a gap in the reverse direction. If so, check and swap again working to the left until reverse gap surpasses index[0]
+            
+        }
+
+        
         //Increase first gap element and last by 1 and repeat the process until you hit list length
         //Divide gap by 2 and repeat the whole process. 
+        Result = 0;
     }
 }
