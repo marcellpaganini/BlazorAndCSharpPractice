@@ -33,7 +33,7 @@ According to Wikipedia "Shell sort or Shell's method, is an in-place comparison 
         int firstGapIndex = Input.IndexOf(Input[0]);
         int lastGapIndex = Input.IndexOf(Input[gap]);
         
-        while (gap > 1) 
+        while (gap >= 1) 
         {
             while (lastGapIndex <= Input.Count) 
             {
@@ -45,16 +45,24 @@ According to Wikipedia "Shell sort or Shell's method, is an in-place comparison 
                     Input[gap] = temp;
 
                     //If swapped, get the first gap element and check if there's a gap in the reverse direction. If so, check and swap again working to the left until reverse gap surpasses index[0]
-                    int firstReverseGapIndex = Input[firstGapIndex - gap]; 
+                    int firstReverseGapIndex = firstGapIndex - gap; 
+                    int lastReverseGapIndex = Input.IndexOf(Input[firstGapIndex]);
                     
-                    while (firstReverseGapIndex != -1) 
+                    while (firstReverseGapIndex >= 0) 
                     {
-                        /*
-                        TODO
-                        int temp = Input[firstGapIndex];
-                        Input[firstGapIndex] = Input[lastGapIndex];
-                        Input[gap] = temp;
-                        */
+                        if(Input[firstReverseGapIndex] > Input[lastReverseGapIndex]) 
+                        {
+                            int reverseTemp = Input[firstReverseGapIndex];
+                            Input[firstReverseGapIndex] = Input[lastReverseGapIndex];
+                            Input[lastReverseGapIndex] = reverseTemp;
+
+                            firstReverseGapIndex = Input[firstReverseGapIndex - gap];
+                            lastReverseGapIndex = Input[firstReverseGapIndex];
+                        }
+                        else 
+                        {
+                            return;
+                        }
                     }
                 }
 
@@ -65,8 +73,8 @@ According to Wikipedia "Shell sort or Shell's method, is an in-place comparison 
 
             //Decrease gap by 1 and repeat the whole process.
             gap--;
-        }
-         
-        Result = 0;
+            firstGapIndex = Input.IndexOf(Input[0]);
+            lastGapIndex = Input.IndexOf(Input[gap]);
+        }         
     }
 }
