@@ -1,0 +1,17 @@
+﻿@page "/StringsOne"
+
+<h3>StringsOne</h3>
+
+<span>Input the string:</span>
+<input type="text" @oninput="(e) => ShowInput(e)"><br />
+@Input
+
+
+@code {
+    public string Input { get; set; } = "Default";
+
+    public void ShowInput(ChangeEventArgs e) 
+    {
+        Input = $"The string you entered is: {e.Value?.ToString()}" ?? "Default";
+    }
+}
