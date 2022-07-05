@@ -1,0 +1,13 @@
+﻿@using Math;
+@page "/MathOne";
+
+<h3>MathOne</h3>
+
+<p>Write a C# Sharp program to get the absolute value of a number of Decimal values, Double values, Int16 values, Int32 values: and Int64 values.</p>
+<input type="number" placeholder="Add a number" @bind="Result"/> <br />
+
+<span>@Math.Abs(Convert.ToDecimal(Result))</span>
+
+@code {
+    public string Result { get; set; } = "0";
+}
