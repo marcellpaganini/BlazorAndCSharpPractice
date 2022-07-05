@@ -1,0 +1,16 @@
+﻿@page "/FunctionOne"
+
+<h3>FunctionOne</h3>
+
+<button type="button" class="btn btn-primary" @onclick="Show">Show</button> <br />
+<span>@Message</span>
+
+
+@code {
+    public string Message { get; set; } = "";
+
+    public void Show() 
+    {
+        Message = "Welcome friends! Have a nice day!";
+    }
+}
